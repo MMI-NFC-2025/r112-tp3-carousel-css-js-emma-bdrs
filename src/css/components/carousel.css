@@ -1,55 +1,61 @@
 img {
   max-width: 100%;
   height: auto;
+  display : block
 }
 
-/* Mise en forme du carousel en CSS.
-Utiliser flex pour positionner les item du carousel les uns à coté des autres.
-La propriété "overflow-x" avec la valeur "scroll" permet rogner le contenu afin de tenir horizontalement dans la boîte de remplissage et d'ajouter un scroll horizontal si le contenu déborde.
-https://developer.mozilla.org/fr/docs/Web/CSS/overflow-x
-
-La propriété "scroll-snap-type" définit la force d'adhérence aux points d'accroche en cas de défilement d'un conteneur
-https://developer.mozilla.org/fr/docs/Web/CSS/scroll-snap-type
-
-Les margin négatifs à gauche et à droite corresponde à l'éespace entre le navigateur et le début du contenu, de sorte que le carousel soit collé au bords de l'écran.
-
-*/
-
-/* Compléter la suite du code */
-.carousel__controls {
+.carousel_wrapper {
   display: flex;
+  overflow-x: scroll;
+  position: relative;
+  overflow: hidden;
   gap: 16px;
   align-items: center;
   justify-content: center;
-  margin: 16px 0 16px 0;
+  margin: 16px 0;
 }
-.carousel__button {
-  width: 50px;
+
+.carouselcontrols {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center; 
+  margin: 16px 0;
+}
+
+.carouselbutton {
+   width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid 1px;
   border-radius: 50%;
-}
-.carousel__button--prev {
-  transform: rotate(180deg);
+  cursor: pointer;
+  user-select: none;
 }
 
-.carousel__container {
+.carouselbutton--prev {
+transform: rotate(180deg); 
+}
+
+.carouselcontainer {
   display: flex;
   gap: 16px;
-  overflow-x: scroll;
+  overflow-x: auto;
   margin-left: -24px;
   margin-right: -24px;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; 
 }
 
-.carousel__item {
-  flex: 1 0 260px;
-  scroll-snap-type: center;
+.carouselitem {
+  flex: 0 0 260px;
+  scroll-snap-align: center; 
+  box-sizing: border-box;
 }
 
-.carousel__item img {
-  display: block;
+.carouselitem img {
+  border-radius: 12px
+   display: block; 
 }
+
